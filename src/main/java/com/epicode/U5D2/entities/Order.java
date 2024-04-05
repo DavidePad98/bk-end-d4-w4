@@ -11,9 +11,9 @@ public class Order {
 	private int numCoperti;
 	private LocalTime oraAcquisizione;
 	private List<Item> orderedProducts;
-	private Table table;
+	private Tables table;
 
-	public Order(int numCoperti, Table table) {
+	public Order(int numCoperti, Tables table) {
 		Random rndm = new Random();
 		if (table.getNumMaxCoperti() <= numCoperti)
 			throw new RuntimeException("Numero coperti maggiore di numero massimo posti sul tavolo!");

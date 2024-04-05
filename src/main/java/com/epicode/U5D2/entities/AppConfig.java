@@ -119,17 +119,17 @@ public class AppConfig {
 	}
 
 	@Bean("Tavolo1")
-	Table getTable1(@Value("${seat.price}") double seatPrice) {
-		return new Table(1, 5, true, seatPrice);
+	Tables getTables1(@Value("${seat.price}") double seatPrice) {
+		return new Tables(1, 5, true, seatPrice);
 	}
 
 	@Bean("Tavolo2")
-	Table getTable2(@Value("${seat.price}") double seatPrice) {
-		return new Table(2, 4, true, seatPrice);
+	Tables getTables2(@Value("${seat.price}") double seatPrice) {
+		return new Tables(2, 4, true, seatPrice);
 	}
 
 	@Bean("Tavolo3")
-	Table getTable3(@Value("${seat.price}") double seatPrice) {
-		return new Table(3, 8, true, seatPrice);
+	Tables getTables3(@Value("${seat.price}") double seatPrice) {
+		return new Tables(3, 8, true, seatPrice);
 	}
 }

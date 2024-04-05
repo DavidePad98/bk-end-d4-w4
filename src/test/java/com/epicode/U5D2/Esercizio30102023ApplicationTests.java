@@ -45,7 +45,7 @@ class Esercizio30102023ApplicationTests {
 	@Test
 	public void orderTest(){
 		try{
-			Table table = (Table) ctx.getBean("Tavolo1");
+			Tables table = (Tables) ctx.getBean("Tavolo1");
 			Order order = new Order(4, table);
 
 			Pizza pizza1 = (Pizza) ctx.getBean("pizza_margherita", Pizza.class);

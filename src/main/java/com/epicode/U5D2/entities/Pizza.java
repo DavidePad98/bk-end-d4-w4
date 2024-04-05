@@ -1,13 +1,29 @@
 package com.epicode.U5D2.entities;
 
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
-
+@Entity
+@Table(name = "pizzas")
 @Getter
+@Setter
 public class Pizza extends Item {
+	@Column(name = "name")
 	private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Setter(AccessLevel.NONE)
+	private long pizza_id;
 
+	@ManyToMany
+	@JoinTable(
+			name = "pizza_toppings",
+			joinColumns = @JoinColumn(name = "pizza_id"),
+			inverseJoinColumns = @JoinColumn(name = "topping_id")
+	)
 	private List<Topping> toppingList;
 	private boolean isXl = false;
 
@@ -17,6 +33,9 @@ public class Pizza extends Item {
 		this.toppingList = toppingList;
 		this.isXl = isXl;
 	}
+	public Pizza(){
+        super(700, 4.3);
+    }
 
 	@Override
 	public int getCalories() {
@@ -34,7 +53,7 @@ public class Pizza extends Item {
 				"name='" + name + '\'' +
 				", calories=" + calories +
 				", price=" + price +
-				", toppingList=" + toppingList +
+//				", toppingList=" + toppingList + <-- PUO CREARE PROBLEM IN FASE DI RUNNING
 				", isXl=" + isXl +
 				'}';
 	}

@@ -1,11 +1,13 @@
 package com.epicode.U5D2.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import jakarta.persistence.*;
+import lombok.*;
+
 
 @AllArgsConstructor
 @Getter
-public class Table {
+@ToString
+public class Tables {
 	private int numTable;
 	private int numMaxCoperti;
 	private boolean isFree;
